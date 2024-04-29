@@ -10,7 +10,7 @@
 - Ouvrez le fichier make.bat dans le dossier contenant vos fichiers Latex.
 - Modifiez les paramètres du fichier make.bat selon vos besoins.
 - Exécutez le fichier ```make.bat``` pour compiler vos fichiers Latex. ```.\make.bat```	
-- Choissisez le nombre de compilations. Une seule compilation est généralement suffisante, mais deux compilations peuvent être nécessaires pour actualiser la table des matières.
+- Choissisez le nombre de compilations. Une seule compilation est généralement suffisante. Cependant, pour actualiser la table des matières il faut effectuer deux compilations (une première pour calculer les pages nécessaires et générer le .toc, et une seconde pour ajouter la table des matières).
 ### Paramètres à modifier dans make.bat
 - ```projectName``` : Nom du projet, qui sera le titre du fichier PDF généré.
 - ```mainFile``` : Nom du fichier principal .tex.
