@@ -1,6 +1,6 @@
 # Compilations de fichiers Latex depuis VSCode
-> [!WARNING]  
-> Ce script ne fonctionne actuellement que sur Windows. Pour Linux, vous pouvez utiliser un script bash similaire.
+> [!NOTE]  
+> Ce script est destiné à Windows et Linux. MacOS n'est pas supporté officiellement. Le support sur Linux est à ce jour plus complet que sur Windows.
 
 ## Windows [Testé sur Windows 11]
 ### Installation
@@ -17,10 +17,11 @@
      - Activez l'installation automatique des packages.
 3. Utilisez le fichier ```./make.bat``` comme expliqué dans la section [utilisation](#Utilisation).
 
-
+---
 ### Problèmes fréquents
 
-> [!TIP] Aucun problème fréquent répertorié.
+> [!NOTE]
+> Aucun problème fréquent répertorié.
 > 
 
 
@@ -40,6 +41,8 @@ Ouvrez un terminal et effectuez les opérations suivantes:
 1. Installer Teklive: ```sudo apt-get install texlive```
 2. Installer tous les packages complémentaires: ```sudo apt-get install texlive-full```
 3. Utilisez le fichier ```./make.sh``` comme expliqué à la section [utilisation](#utilisation).
+
+---
 
 
 ### Problèmes fréquents
@@ -111,19 +114,6 @@ Si vous avez compressé le fichier, il affichera également les informations:
 - Taille du fichier compressé en Octets, Ko et Mo.
 - Gain en taille par rapport au fichier non compressé.
 
-## TIPS
-> [!TIP]
-> Si vous désirez utiliser la même police d'écriture qu'Overleaf, vous pouvez télécharger la police d'écriture ```CMU Serif``` sur le site officiel de [Computer Modern Unicode](https://sourceforge.net/projects/cm-unicode/).
->
-> Ensuite, au début de votre fichier .tex, ajoutez la ligne suivante:
-> ```latex
-> \usepackage{fontspec}
-> \setmainfont{CMUSerif-Roman}
-> ```
-
-> [!TIP]
-> Si vous désirez utiliser des images vectorielles mais ne voulez pas vous embêter avec Inkscape, vous pouvez convertir vos images en pdf.
-
 
 ## Pour nettoyer les fichiers temporaires
 Deux options s'offrent à vous pour nettoyer les fichiers temporaires:
@@ -144,3 +134,28 @@ Deux options s'offrent à vous pour nettoyer les fichiers temporaires:
 ### Paramètres à modifier dans clean
 - ```buildDir``` : Dossier de compilation.
 - Si vous avez plusieurs sous-dossiers, ajoutez les suppressions dans le fichier ```clean.bat``` ou ```clean.sh```.
+
+## Divers
+> [!WARNING]
+> Si vous êtes sur ```Linux```, il est possible qu'exécuter les fichiers depuis le terminal intégré à VSCode ne fonctionne pas. Dans ce cas, ouvrez un terminal (```CTRL + ALT + T```), placez-vous dans le répertoire de votre projet et exécutez le fichier ```make.sh```:
+> ```bash
+> ./make.sh
+> ```
+>
+> Si vous souhaitez tout de même exécuter les fichiers depuis le terminal intégré à VSCode, désinstaller la version de VSCode installée via ```snap``` et installer la version via ```apt-get```:
+> ```bash
+> sudo snap remove --purge code
+> sudo apt-get install code
+> ```
+---
+> [!TIP]
+> Si vous désirez utiliser la même police d'écriture qu'Overleaf, vous pouvez télécharger la police d'écriture ```CMU Serif``` sur le site officiel de [Computer Modern Unicode](https://sourceforge.net/projects/cm-unicode/).
+>
+> Ensuite, au début de votre fichier .tex, ajoutez la ligne suivante:
+> ```latex
+> \usepackage{fontspec}
+> \setmainfont{CMUSerif-Roman}
+> ```
+---
+> [!TIP]
+> Si vous désirez utiliser des images vectorielles mais ne voulez pas vous embêter avec Inkscape, vous pouvez convertir vos images en pdf.
