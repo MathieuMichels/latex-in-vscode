@@ -21,6 +21,7 @@
 ### Problèmes fréquents
 
 > [!TIP] Aucun problème fréquent répertorié.
+> 
 
 
 ## Linux - Ubuntu [Testé sur Ubuntu 23.10]
