@@ -3,8 +3,7 @@
 > Ce script ne fonctionne actuellement que sur Windows. Pour Linux, vous pouvez utiliser un script bash similaire.
 
 ## Windows [Testé sur Windows 11]
-<details>
-<summary>Installation</summary>
+### Installation
 
 > [!WARNING]
 > Si vous désirez utiliser certains packages tels que ```svg```, vous aurez besoin d'installer ```inkscape```. 
@@ -18,19 +17,14 @@
      - Activez l'installation automatique des packages.
 3. Utilisez le fichier ```./make.bat``` comme expliqué dans la section [utilisation](#Utilisation).
 
-</details>
 
-<details>
-<summary>Problèmes fréquents</summary>
+### Problèmes fréquents
 
 > [!TIP] Aucun problème fréquent répertorié.
 
-</details>
 
 ## Linux - Ubuntu [Testé sur Ubuntu 23.10]
-
-<details>
-<summary>Installation</summary>
+### Installation
 
 > [!NOTE]
 > Si vous utilisez une autre distribution linux qu'Ubuntu, il faut adapter les commandes ```apt-get``` par celles respectives à votre système.
@@ -42,35 +36,23 @@ Ouvrez un terminal et effectuez les opérations suivantes:
 > Vous pouvez l'installer avec la commande suivante: ```sudo apt-get install inkscape```
 >
 > Vérifiez ensuite qu'```inkscape``` est correctement installé et accessible depuis n'importe où sur votre ordinateur. Pour cela, ouvrez n'importe quel autre dossier dans le terminal et tapez ```inkscape --version```. Si une version s'affiche, ça fonctionne.
-2. Installer Teklive: ```sudo apt-get install texlive```
-3. Installer tous les packages complémentaires: ```sudo apt-get install texlive-full```
-4. Utilisez le fichier ```./make.sh``` comme expliqué à la section [utilisation](#utilisation).
+1. Installer Teklive: ```sudo apt-get install texlive```
+2. Installer tous les packages complémentaires: ```sudo apt-get install texlive-full```
+3. Utilisez le fichier ```./make.sh``` comme expliqué à la section [utilisation](#utilisation).
 
 
-</details>
-
-
-<details>
-<summary>Problèmes fréquents</summary>
-
-<details>
-
-<summary>Problèmes avec les svg</summary>
+### Problèmes fréquents
+#### Problèmes avec les ```svg```:
 
 - Désinstaller et réinstaller ```inkscape```
 - Utiliser des liens absolus et non relatifs pour référencer les images. 
   - Par exemple, utiliser ```\includesvg{/home/user/latex-project/imgs/img-1}``` 
   - Plutôt que ```\includesvg{imgs/img-1}```.
-</details>
 
-<details>
-<summary>Problèmes avec des packages</summary>
+#### Problèmes avec des packages manquants:
 
 - Installer la version complète de Texlive: ```sudo apt-get install texlive-full```.
 - Se référer à [ce post](https://tex.stackexchange.com/questions/134365/installation-of-texlive-full-on-ubuntu-12-04).
-</details>
-
-</details>
 
 
 ## MacOS [Non supporté officiellement]
@@ -105,13 +87,13 @@ Ouvrez un terminal et effectuez les opérations suivantes:
 - ```debug``` : Afficher les messages de débogage (1 pour oui, 0 pour non).
 - ```clean``` : Nettoyer les fichiers temporaires (1 pour oui, 0 pour non).
 - ```compress``` : Compresser le fichier PDF (1 pour oui, 0 pour non).
-    >[!NOTE]
-    >Si le fichier est petit, la compression ne sera pas très efficace. Il est possible que le fichier compressé soit plus grand que le fichier original.
+>[!NOTE]
+>Si le fichier est petit, la compression ne sera pas très efficace. Il est possible que le fichier compressé soit plus grand que le fichier original.
 
-    > [!WARNING] 
-    > Si vous souhaitez compresser le fichier PDF, si vous êtes sur Linux, vous n'avez rien à faire.
-    >
-    > Si vous êtes sur Windows, vous devez installer ```ghostscript``` (https://www.ghostscript.com/download/gsdnld.html) et ajouter le chemin d'accès à ```gswin64c.exe``` dans les variables d'environnement de Windows.
+> [!WARNING] 
+> Si vous souhaitez compresser le fichier PDF, si vous êtes sur Linux, vous n'avez rien à faire.
+>
+> Si vous êtes sur Windows, vous devez installer ```ghostscript``` (https://www.ghostscript.com/download/gsdnld.html) et ajouter le chemin d'accès à ```gswin64c.exe``` dans les variables d'environnement de Windows.
 
 
 ## Informations fournies sur le fichier PDF
@@ -142,15 +124,22 @@ Si vous avez compressé le fichier, il affichera également les informations:
 > Si vous désirez utiliser des images vectorielles mais ne voulez pas vous embêter avec Inkscape, vous pouvez convertir vos images en pdf.
 
 
-
-# OLD - TO REMOVE
-
 ## Pour nettoyer les fichiers temporaires
-- Ouvrez le fichier clean.bat dans le dossier contenant vos fichiers Latex.
-- Modifiez les paramètres du fichier clean.bat selon vos besoins.
-- Exécutez le fichier ```clean.bat``` pour nettoyer les fichiers temporaires. ```.\clean.bat```
-- Choisissez si vous souhaitez également nettoyer la table des matières.
+Deux options s'offrent à vous pour nettoyer les fichiers temporaires:
+1. Vous nettoyez directement lors de la compilation en ajoutant l'argument ```--clean 1```. 
+    - Exemple:
+         ```bash
+         ./make.sh --clean 1
+         ```
+2. Vous nettoyez après la compilation en exécutant le fichier ```clean.bat``` ou ```clean.sh```:
+   - Ouvrez le fichier ```clean.bat``` si vous êtes sur Windows et ```clean.sh``` si vous êtes sur Linux dans le dossier contenant vos fichiers Latex.
+   - Modifiez les paramètres du fichier ```clean.bat``` ou ```clean.sh``` si nécessaire.
+   - Exécutez le fichier ```clean.bat``` ou ```clean.sh``` pour nettoyer les fichiers temporaires:
+       ```bash
+       ./clean.sh
+       ```
+   - Choisissez si vous souhaitez également nettoyer la table des matières.
 
-### Paramètres à modifier dans clean.bat
+### Paramètres à modifier dans clean
 - ```buildDir``` : Dossier de compilation.
-- Si vous avez plusieurs sous-dossiers, ajoutez les suppressions dans le fichier ```clean.bat```.
+- Si vous avez plusieurs sous-dossiers, ajoutez les suppressions dans le fichier ```clean.bat``` ou ```clean.sh```.
